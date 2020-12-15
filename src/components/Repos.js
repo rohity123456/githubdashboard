@@ -12,13 +12,35 @@ const Repos = () => {
     "language",
     "stargazers_count"
   );
-  console.log("MOSTSTARREDLANGLIST ", mostStarredLangList);
+  let { famousrepos, forked } = repos.reduce(
+    (total, repository) => {
+      const { stargazers_count, forks, name } = repository;
+      total.famousrepos[name] = {
+        label: name,
+        value: stargazers_count,
+      };
+      total.forked[name] = {
+        label: name,
+        value: forks,
+      };
+
+      return total;
+    },
+    {
+      famousrepos: {},
+      forked: {},
+    }
+  );
+  famousrepos = HF.convertToArray(famousrepos, "value");
+  forked = HF.convertToArray(forked, "value");
+  console.log(famousrepos, forked);
   return (
     <section className="section">
       <Wrapper className="section-center">
         <Pie3D data={mostUsedLangList} />
-        <div></div>
+        <Column3D data={famousrepos} />
         <Doughnut2D data={mostStarredLangList} />
+        <Bar3D data={forked} />
         <div></div>
       </Wrapper>
     </section>

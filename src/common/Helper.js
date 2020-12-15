@@ -9,11 +9,14 @@ class HelperFunction {
       } else propertyObj[propertyValue] = 0;
       return propertyObj;
     }, {});
-    return Object.keys(propertyObj)
+    return this.convertToArray(propertyObj);
+  };
+  convertToArray = (p_object, drill) => {
+    return Object.keys(p_object)
       .map((key) => {
         const obj = {};
         obj.label = key;
-        obj.value = propertyObj[key];
+        obj.value = drill ? p_object[key][drill] : p_object[key];
         return obj;
       })
       .sort((a, b) => b.value - a.value)
