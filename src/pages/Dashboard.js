@@ -6,6 +6,7 @@ const Dashboard = () => {
   const value = useContext(GitHubContext);
   return (
     <main>
+      <Search />
       <Info />
       <User />
       <Repos />

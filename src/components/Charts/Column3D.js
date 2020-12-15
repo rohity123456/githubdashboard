@@ -13,7 +13,7 @@ const chartConfigs = {
   dataSource: {
     // Chart Configuration
     chart: {
-      caption: "Most Forked Repository", //Set the chart caption
+      caption: "Most Popular Repository", //Set the chart caption
       xAxisName: "Repository",
       yAxisName: "Stars",
     },

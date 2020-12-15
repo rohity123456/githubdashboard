@@ -1,9 +1,33 @@
-import React from 'react';
-import styled from 'styled-components';
-import { MdSearch } from 'react-icons/md';
-import { GithubContext } from '../context/context';
+import React, { useContext, useState } from "react";
+import styled from "styled-components";
+import { MdSearch } from "react-icons/md";
+import { GitHubContext } from "../context/context";
 const Search = () => {
-  return <h2>search component</h2>;
+  const { Request } = useContext(GitHubContext);
+  const [input, setinput] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(input);
+  };
+  return (
+    <section className="section">
+      <Wrapper className="section-center">
+        <form onSubmit={handleSubmit}>
+          <div className="form-control">
+            <MdSearch />
+            <input
+              type="text"
+              placeholder="Search GitHub User"
+              onChange={(e) => setinput(e.target.value)}
+              value={input}
+            />
+            <button type="submit">Search</button>
+          </div>
+        </form>
+        <h3>requests : {Request}/60</h3>
+      </Wrapper>
+    </section>
+  );
 };
 
 const Wrapper = styled.div`

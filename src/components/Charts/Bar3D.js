@@ -13,9 +13,9 @@ const chartConfigs = {
   dataSource: {
     // Chart Configuration
     chart: {
-      caption: "Most Popular Languages", //Set the chart caption
-      xAxisName: "Language",
-      yAxisName: "Stars",
+      caption: "Most Forked Repository", //Set the chart caption
+      yAxisName: "Repository",
+      xAxisName: "Forks",
     },
     // Chart Data - from step 2
   },
