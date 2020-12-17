@@ -1,13 +1,20 @@
 import React, { useContext } from "react";
 import { Info, Repos, User, Search, Navbar } from "../components";
-import loadingImage from "../images/preloader.gif";
 import { GitHubContext } from "../context/context";
 import ErrorContainer from "../components/ErrorContainer";
+import Loading from "../components/Loading";
 const Dashboard = () => {
   const {
     error: { show, message },
+    isLoading,
   } = useContext(GitHubContext);
-  return (
+  console.log("isLoading ", isLoading);
+  return isLoading ? (
+    <main>
+      <Search />
+      <Loading />
+    </main>
+  ) : (
     <main>
       {show && <ErrorContainer message={message} />}
       <Search />

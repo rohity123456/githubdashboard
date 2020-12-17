@@ -3,11 +3,11 @@ import styled from "styled-components";
 import { MdSearch } from "react-icons/md";
 import { GitHubContext } from "../context/context";
 const Search = () => {
-  const { Request } = useContext(GitHubContext);
+  const { Request, searchUser } = useContext(GitHubContext);
   const [input, setinput] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(input);
+    searchUser(input);
   };
   return (
     <section className="section">
