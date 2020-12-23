@@ -10,24 +10,28 @@ const UserInfo = () => {
   const Items = [
     {
       icon: <GoRepo className="icon" />,
+      id: "1",
       label: "Repos",
       value: public_repos,
       color: "pink",
     },
     {
       icon: <GoGist className="icon" />,
+      id: "2",
       label: "Gist",
       value: public_gists,
       color: "green",
     },
     {
       icon: <FiUsers className="icon" />,
+      id: "3",
       label: "Followers",
       value: followers,
       color: "purple",
     },
     {
       icon: <FiUserPlus className="icon" />,
+      id: "4",
       label: "Following",
       value: following,
       color: "yellow",
@@ -46,7 +50,7 @@ const UserInfo = () => {
     <section className="section">
       <Wrapper className="section-center">
         {Items.map((item) => (
-          <Item {...item} />
+          <Item {...item} key={item.id} />
         ))}
       </Wrapper>
     </section>

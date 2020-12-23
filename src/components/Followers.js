@@ -5,7 +5,6 @@ import { useContext } from "react";
 
 const Followers = () => {
   const { followers } = useContext(GitHubContext);
-  console.log(followers);
   return (
     <Wrapper>
       <div className="followers">

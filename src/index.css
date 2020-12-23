@@ -166,6 +166,32 @@ p {
   margin: 0 auto;
   max-width: 1170px;
 }
+.toggle {
+  appearance: none;
+  cursor: pointer;
+  width: 60px;
+  outline: none;
+  height: 30px;
+  position: relative;
+  border-radius: 20px;
+  transition: 0.2s all ease-in;
+  background-color: gray;
+}
+.toggle:checked {
+  background-color: greenyellow;
+}
+.toggle::before {
+  content: "";
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  border-radius: 50%;
+  background-color: whitesmoke;
+  transition: 0.2s all ease-in;
+}
+.toggle:checked:before {
+  transform: translateX(100%);
+}
 @media screen and (min-width: 992px) {
   .section-center {
     width: 95vw;

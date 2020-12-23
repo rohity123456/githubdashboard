@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { MdBusiness, MdLocationOn, MdLink } from "react-icons/md";
 const Card = () => {
   const { gitHubUser } = useContext(GitHubContext);
-  console.log(gitHubUser);
+  // console.log(gitHubUser);
   const {
     avatar_url,
     name,

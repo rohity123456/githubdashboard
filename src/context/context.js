@@ -19,31 +19,33 @@ const GitHubProvider = ({ children }) => {
     });
   };
   const setUserInfo = (user, followers, repos) => {
-    setgitHubUser(user);
-    setfollowers(followers);
-    setRepos(repos);
+    setgitHubUser(user.data);
+    setfollowers(followers.data);
+    setRepos(repos.data);
   };
   const searchUser = async (username) => {
-    setLoading(true);
     if (!username.trim()) return toggleError(true, "Invalid Username !");
     toggleError();
+    setLoading(true);
     try {
-      const { data: user } = await axios(`/users/${username}`);
-      const { data: followers } = await axios(`/users/${username}/followers`);
-      const { data: repos } = await axios(
-        `/users/${username}/repos?per_page=100`
-      );
-      setUserInfo(user, followers, repos);
+      const promisesList = [
+        axios(`/users/${username}`),
+        axios(`/users/${username}/followers?per_page=50`),
+        axios(`/users/${username}/repos?per_page=100`),
+      ];
+      const result = await Promise.all(promisesList);
+      console.log("RESULT ", result);
+      setUserInfo(...result);
     } catch (exception) {
       toggleError(true, "Invalid Username !");
     } finally {
       setLoading(false);
     }
   };
-  useEffect(checkRemainingRequests, []);
   const toggleError = (show = false, message = "") => {
     setError({ show, message });
   };
+  useEffect(checkRemainingRequests, []);
   const [gitHubUser, setgitHubUser] = useState(mockUser);
   const [repos, setRepos] = useState(mockRepos);
   const [followers, setfollowers] = useState(mockFollowers);

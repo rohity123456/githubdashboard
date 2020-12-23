@@ -8,14 +8,16 @@ const Dashboard = () => {
     error: { show, message },
     isLoading,
   } = useContext(GitHubContext);
-  console.log("isLoading ", isLoading);
+  // console.log("isLoading ", isLoading);
   return isLoading ? (
     <main>
+      <Navbar />
       <Search />
       <Loading />
     </main>
   ) : (
     <main>
+      <Navbar />
       {show && <ErrorContainer message={message} />}
       <Search />
       <Info />

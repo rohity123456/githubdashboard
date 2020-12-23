@@ -5,7 +5,7 @@ import { GitHubContext } from "../context/context";
 import { ExampleChart, Pie3D, Column3D, Bar3D, Doughnut2D } from "./Charts";
 const Repos = () => {
   const { repos } = useContext(GitHubContext);
-  console.log(repos);
+  // console.log(repos);
   const mostUsedLangList = HF.getMostUsedList(repos, "language");
   const mostStarredLangList = HF.getMostUsedList(
     repos,
@@ -33,7 +33,6 @@ const Repos = () => {
   );
   famousrepos = HF.convertToArray(famousrepos, "value");
   forked = HF.convertToArray(forked, "value");
-  console.log(famousrepos, forked);
   return (
     <section className="section">
       <Wrapper className="section-center">
