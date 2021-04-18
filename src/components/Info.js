@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { GoRepo, GoGist } from "react-icons/go";
 import { FiUsers, FiUserPlus } from "react-icons/fi";
 import { GitHubContext } from "../context/context";
-import HF from "../common/Helper";
 const UserInfo = () => {
   const { gitHubUser } = useContext(GitHubContext);
   const { public_repos, public_gists, followers, following } = gitHubUser;

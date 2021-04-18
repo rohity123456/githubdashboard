@@ -5,7 +5,7 @@ class HelperFunction {
       if (!propertyValue) return propertyObj;
       if (propertyObj.hasOwnProperty(propertyValue)) {
         const increament = currRepository[increamentProperty];
-        propertyObj[propertyValue] += increament != undefined ? increament : 1;
+        propertyObj[propertyValue] += increament !== undefined ? increament : 1;
       } else propertyObj[propertyValue] = 0;
       return propertyObj;
     }, {});

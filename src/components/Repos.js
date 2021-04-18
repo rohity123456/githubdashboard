@@ -2,7 +2,7 @@ import React, { memo, useContext } from "react";
 import styled from "styled-components";
 import HF from "../common/Helper";
 import { GitHubContext } from "../context/context";
-import { ExampleChart, Pie3D, Column3D, Bar3D, Doughnut2D } from "./Charts";
+import { Pie3D, Column3D, Bar3D, Doughnut2D } from "./Charts";
 const Repos = () => {
   const { repos } = useContext(GitHubContext);
   // console.log(repos);

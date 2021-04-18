@@ -3,20 +3,7 @@ import styled from "styled-components";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Navbar = () => {
-  const {
-    // Auth state:
-    error,
-    isAuthenticated,
-    isLoading,
-    user,
-    // Auth methods:
-    getAccessTokenSilently,
-    getAccessTokenWithPopup,
-    getIdTokenClaims,
-    loginWithRedirect,
-    loginWithPopup,
-    logout,
-  } = useAuth0();
+  const { isAuthenticated, user, logout } = useAuth0();
   const toggleTheme = (e) => {
     Array.from(document.getElementsByTagName("img")).forEach((img) => {
       img.style.filter = e.target.checked ? "invert(1) hue-rotate(180deg)" : "";
